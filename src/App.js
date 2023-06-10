@@ -50,7 +50,7 @@ function App() {
           <ListWrong name='Monthly Status Reports' />
         </ul>
         <div>
-          <Btn name="button" />
+          <Btn name="Button" />
         </div>
       </div>
       <div>
@@ -58,7 +58,7 @@ function App() {
         <h6>$49 month</h6>
         <hr></hr>
         <ul>
-          <ListRight name='5 Users' />
+          <ListRight name='Unlimited Users' />
           <ListRight name='150GB Storage' />
           <ListRight name='Unlimited Public Projects' />
           <ListRight name='Community Access' />
@@ -68,7 +68,7 @@ function App() {
           <ListRight name='Monthly Status Reports' />
         </ul>
         <div>
-          <Btn name="button" />
+          <Btn name="Button" />
         </div>
       </div>
     </div>
