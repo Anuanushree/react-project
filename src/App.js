@@ -6,7 +6,7 @@ function ListRight(props) {
 }
 function Btn(props) {
   return (
-    <a href="#">{props.name}</a>
+    <a href="https://">{props.name}</a>
   )
 }
 function ListWrong(props) {
