@@ -1,79 +1,100 @@
-import React from 'react'
-function ListRight(props) {
-  return (
-    <li>{props.name}</li>
-  )
-}
-function Btn(props) {
-  return (
-    <a href="https://">{props.name}</a>
-  )
-}
-function ListWrong(props) {
-  return (
-    <li>{props.name}</li>
-  )
-}
-function App() {
-  return (
-    <div>
-      <div>
-        <h5> FREE</h5>
-        <h6> $0 month</h6>
-        <hr></hr>
-        <ul>
-          <ListRight name='Single User' />
-          <ListRight name='5GB Storage' />
-          <ListRight name='Unlimited Public Projects' />
-          <ListRight name='Community Access' />
-          <ListWrong name='Unlimited Private Projects' />
-          <ListWrong name='Dedicated Phone Support' />
-          <ListWrong name='Free Subdomain' />
-          <ListWrong name='Monthly Status Reports' />
-        </ul>
-        <div>
-          <Btn name="Button" />
-        </div>
-      </div>
-      <div>
-        <h5> PLUS</h5>
-        <h6> $9 month</h6>
-        <hr></hr>
-        <ul>
-          <ListRight name='5 Users' />
-          <ListRight name='50GB Storage' />
-          <ListRight name='Unlimited Public Projects' />
-          <ListRight name='Community Access' />
-          <ListRight name='Unlimited Private Projects' />
-          <ListRight name='Dedicated Phone Support' />
-          <ListRight name='Free Subdomain' />
-          <ListWrong name='Monthly Status Reports' />
-        </ul>
-        <div>
-          <Btn name="Button" />
-        </div>
-      </div>
-      <div>
-        <h5> PRO</h5>
-        <h6>$49 month</h6>
-        <hr></hr>
-        <ul>
-          <ListRight name='Unlimited Users' />
-          <ListRight name='150GB Storage' />
-          <ListRight name='Unlimited Public Projects' />
-          <ListRight name='Community Access' />
-          <ListRight name='Unlimited Private Projects' />
-          <ListRight name='Dedicated Phone Support' />
-          <ListRight name='Unlimited Free Subdomain' />
-          <ListRight name='Monthly Status Reports' />
-        </ul>
-        <div>
-          <Btn name="Button" />
-        </div>
-      </div>
-    </div>
-  )
-}
+// import { Component } from "react";
 
-export default App
+// class App extends Component{
+//   render(){
+//     return <div>Hello,world</div>
+//   }
+// }
 
+// import React from "react";
+// function Hello(props){
+//   return(
+//     <div>Hello world {props.name}</div>
+//   )
+// }
+// function App(){
+//   return(
+//     <div>
+//       <Hello name={'anu'}/>
+//     </div>
+//   )
+// }
+// import { Component } from "react";
+// class Hello extends Component {
+
+//   render() {
+//     const { name } = this.props;
+//     return (
+//       <div>Hello,{name}</div>
+//     )
+//   }
+// }
+// class App extends Component {
+//   render() {
+//     return (
+//       <Hello name={'Anushree'} />
+//     )
+//   }
+// }
+// export default App
+// import React, { Component } from 'react'
+
+// export class App extends Component {
+
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       count: 0,
+//     }
+//   }
+//   handleClick = () => {
+//     this.setState((prevstate) => ({
+//       count: prevstate.count + 1,
+//     }))
+//   }
+//   handleClickminus = () => {
+//     this.setState((prevstate) => ({
+//       count: prevstate.count - 1,
+//     }))
+//   }
+//   handleClickreset = () => {
+//     this.setState((prevstate) => ({
+//       count: 0,
+//     }))
+//   }
+
+
+//   render() {
+//     return (
+//       <div>
+//         <p>count:{this.state.count}</p>
+//         <button onClick={this.handleClick}>plus</button>
+//         <button onClick={this.handleClickminus}>minus</button>
+//         <button onClick={this.handleClickreset}>reset</button>
+//       </div>
+//     )
+//   }
+// }
+
+// export default App
+
+// import React, { Component } from 'react'
+// class Hello extends Component{
+//   render(){
+//     return(
+//       <div>hello</div>
+//     )
+//   }
+// }
+// export class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Hello/>
+//       </div>
+//     )
+//   }
+// }
+
+// export default App
