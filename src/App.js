@@ -1,7 +1,7 @@
 import React from 'react'
 function ListRight(props) {
   return (
-    <li>{props.name}</li>
+    <li>'✔'{props.name}</li>
   )
 }
 function Btn(props) {
@@ -11,7 +11,7 @@ function Btn(props) {
 }
 function ListWrong(props) {
   return (
-    <li>{props.name}</li>
+    <li>'✘' {props.name}</li>
   )
 }
 function App() {
