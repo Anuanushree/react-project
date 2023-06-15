@@ -98,3 +98,28 @@
 // }
 
 // export default App
+import React, { useState } from 'react'
+
+function App() {
+  const [counter, setcounter] = useState(0);
+
+  const handleplus = () => {
+    setcounter(counter + 1)
+  }
+  const handleminus = () => {
+    setcounter(counter - 1)
+  }
+  const handlereset = () => {
+    setcounter(0)
+  }
+  return (
+    <div>
+      <div>{counter}</div>
+      <button onClick={handleplus}>plus</button>
+      <button onClick={handleminus}>minus</button>
+      <button onClick={handlereset}>reset</button>
+    </div>
+  )
+}
+
+export default App
