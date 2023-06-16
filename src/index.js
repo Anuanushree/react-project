@@ -16,6 +16,7 @@ const notes = [
         Name: ' Francy product',
         price: ' $40.00-$80.00',
         available: 'View options',
+        important:false
 
     },
     {
@@ -23,6 +24,7 @@ const notes = [
         Name: ' Special Item',
         price: '$20.00| $18.00',
         available: 'Add to cart',
+        important: true
 
     },
     {
@@ -30,6 +32,7 @@ const notes = [
         Name: '  Sale Item',
         price: ' $50.00| $25.00',
         available: 'Add to cart',
+        important: false
 
     },
     {
@@ -37,6 +40,7 @@ const notes = [
         Name: 'Popular Item',
         price: '$40.00',
         available: 'add to card',
+        important: true
 
     },
     {
@@ -44,6 +48,7 @@ const notes = [
         Name: ' Sale Item',
         price: ' $50.00| $25.00',
         available: 'add to card',
+        important: false
 
     },
     {
@@ -51,6 +56,7 @@ const notes = [
         Name: ' Francy product',
         price: ' $120.00 - $280.00',
         available: 'add to card',
+        important: false
 
     },
     {
@@ -58,6 +64,7 @@ const notes = [
         Name: ' Special Item',
         price: ' $20.00| $18.00',
         available: 'add to card',
+        important: true
 
     },
     {
@@ -65,6 +72,7 @@ const notes = [
         Name: 'Popular Item',
         price: ' $40.00',
         available: 'add to card',
+        important: true
 
     }
 
