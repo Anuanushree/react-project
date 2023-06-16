@@ -2,21 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import App from './App';
-
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
 const notes = [
-    {  
-        id:1,
+    {
+        id: 1,
         Name: ' Francy product',
         price: ' $40.00-$80.00',
-        available: 'View options',
-        important:false
+        available: 'Add to cart',
+        important: false
 
     },
     {
