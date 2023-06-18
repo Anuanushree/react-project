@@ -1,38 +1,6 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap/dist/js/bootstrap.bundle'
-// import ReactDOM from "react-dom";
 
-// function Note({ note }) {
-//   const [count, setCount] = useState(0);
-//   const addcard = (event) => {
-
-//     setCount(count + 1);
-
-//     event.currentTarget.disabled = true;
-
-//   }
-
-//   if (note.important) {
-//     return (
-//       < div >
-//         <h5>{note.Name}</h5>
-//         <div>{note.price}</div>
-//         <div>⭐⭐⭐⭐⭐</div>
-//         <button onClick={addcard}>{note.available}</button>
-//       </div >
-//     )
-//   }
-//   return (
-//     < div >
-
-//       <h5>{note.Name}</h5>
-//       <div>{note.price}</div>
-//       <button onClick={addcard}>{note.available}</button>
-//     </div >
-//   )
-
-// }
 const viewCard = (event) => {
   window.location.reload()
   // event.currentTarget.disabled = false;
