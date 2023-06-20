@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 const viewCard = (event) => {
   window.location.reload()
@@ -40,7 +40,7 @@ function App({ notes }) {
           ) : (
             <div className="col-lg-4 col-md-6 mb-4">
               <div className="card h-100 text-center">
-                <a href="#!"><img class="card-img-top" src="https://via.placeholder.com/700x400" alt="..." /></a>
+                <a href="#!"><img className="card-img-top" src="https://via.placeholder.com/700x400" alt="..." /></a>
 
                 <h5 className="p-3">{note.Name}</h5>
                 <p>{note.price}</p>
