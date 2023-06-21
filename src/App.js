@@ -1,23 +1,31 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-
-const viewCard = (event) => {
-  window.location.reload()
-  // event.currentTarget.disabled = false;
-}
+import Navigation from "./Navigation.js";
 function App({ notes }) {
   const [count, setCount] = useState(0);
-  // const[item ,setitem] = useState([])
+
   const addcard = (event) => {
+    if (event.target.innerText === "Add to cart") {
+      addItem(event);
+    } else if (event.target.innerText === "Remove from Cart") {
+      removeItem(event);
+    }
+  }
+
+  function addItem(event) {
     setCount(count + 1);
-  
-    event.currentTarget.disabled = true;
+    event.target.innerText = "Remove from Cart";
+  }
+
+  function removeItem(event) {
+    setCount(count - 1);
+    event.target.innerText = "Add to Cart";
   }
 
   return (
     <div>
-     
-      <button className="btn btn-success p-2 mt-2" onClick={viewCard}><img style={{ width: 30, height: 30 }} src='https://em-content.zobj.net/thumbs/120/toss-face/342/shopping-cart_1f6d2.png' alt="..." /> card : {count}</button>
+      <Navigation count={count} />
+      {/* <button className="btn btn-success p-2 mt-2"><img style={{ width: 30, height: 30 }} src='https://em-content.zobj.net/thumbs/120/toss-face/342/shopping-cart_1f6d2.png' alt="..." /> card : {count}</button> */}
       <div className="text-center" style={{ backgroundColor: "greenyellow", height: 200 }}>
         <h1 className="pt-5">Shop in style</h1>
         <p className="mb-5" >With this shop hompeage template</p>
@@ -33,7 +41,7 @@ function App({ notes }) {
                 <p>{note.price}</p>
                 <p>⭐⭐⭐⭐⭐</p>
                 <div className="card-footer mt-2">
-                  <button className='m-2' onClick={addcard }>{note.available}</button>
+                  <button className='m-2' onClick={addcard}>{note.available}</button>
                 </div >
               </div>
             </div>
@@ -58,7 +66,7 @@ function App({ notes }) {
 
         <p className="p-5" >Copyright © Your Website 2023</p>
       </div>
-    </div> 
+    </div>
 
   )
 }
