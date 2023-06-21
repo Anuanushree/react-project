@@ -60,7 +60,7 @@ function ChildComponent(){
   <input
    type='text'
    value ={profileName}
-   onchange={onchangeProfileHandler}
+   onChange={onchangeProfileHandler}
   />
 
 </div>
