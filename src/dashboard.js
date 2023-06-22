@@ -93,7 +93,7 @@ function Dashboard() {
                         </div>
                         <div className='col-md-6 '>
                             <div className='card'>
-                                <div class="card-body ">
+                                <div className="card-body ">
                                     <Pagination text='Server Migration' per='20%' color='danger' />
                                     <Pagination text='Sales Tracking ' per='40%' color='warning' />
                                     <Pagination text='Customer Database' per='60%' color='secondary' />

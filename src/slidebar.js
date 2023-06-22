@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFolder, faLaughWink } from '@fortawesome/free-regular-svg-icons';
-import { faChartArea, faCog, faTable, faTachometerAlt, faWrench } from '@fortawesome/free-solid-svg-icons';
-
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFolder, faLaughWink } from '@fortawesome/free-regular-svg-icons';
+// import { faChartArea, faCog, faTable, faTachometerAlt, faWrench } from '@fortawesome/free-solid-svg-icons';
+import './App.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 function Slidebar() {
     return (
         <div>
@@ -34,7 +35,7 @@ function Slidebar() {
                     <li className="nav-item">
                         <a className="nav-link collapsed" href="http" data-toggle="collapse" data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fas fa-fw fa-cog"></i>
+                            <i className="fas fa-fw fa-cog"></i>
                             {/* <FontAwesomeIcon icon={faCog}/> */}
                             <span>Components</span>
                         </a>
@@ -63,7 +64,17 @@ function Slidebar() {
                         </div>
 
                     </li>
+                    <hr className="sidebar-divider d-none d-md-block" />
 
+                    {/* <!-- Sidebar Toggler (Sidebar) --> */}
+                    <div className="text-center d-none d-md-inline">
+                        <button className="rounded-circle border-0" id="sidebarToggle"></button>
+                    </div>
+                    <div className="sidebar-card d-none d-lg-flex">
+                        <img className="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt=''/>
+                            <p className="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+                            <a className="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+                    </div>
                 </ul>
             </div>
         </div>

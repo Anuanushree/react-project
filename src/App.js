@@ -8,17 +8,9 @@ import Slidebar from './slidebar';
 import Card from './card';
 import Color from './color';
 import Border from './Border';
-
 import Button from './Button';
 import './App.css';
 
-function Sample() {
-  return (
-    <div>
-      <h2>hlooo</h2>
-    </div>
-  )
-}
 
 
 function App() {
@@ -32,7 +24,7 @@ function App() {
             <div >
               <div className="container-fluid">
                 <Routes>
-                  {/* <Route to='/' element={<Sample />} /> */}
+                  <Route path='/' element={<Dashboard />} />
                   <Route path="/cards" element={<Card />} />
                   <Route path='/dashboard' element={<Dashboard />} />
                   <Route path='/button' element={<Button />} />
