@@ -32,7 +32,7 @@ function Navigation({ count }) {
                             </li>
                             <li className="nav-item dropdown">
                                 <a
-                                    className="nav-link"
+                                    className="nav-link dropdown-toggle"
                                     id="navbarDropdown"
                                     href="/"
                                     role="button"
@@ -62,6 +62,7 @@ function Navigation({ count }) {
                                 </ul>
                             </li>
                         </ul>
+                    </div>
                         <form className="d-flex">
                             <button className="btn btn-outline-dark" type="submit">
                                 <i className="bi-cart-fill me-1"></i>
@@ -71,7 +72,9 @@ function Navigation({ count }) {
                                 </span>
                             </button>
                         </form>
-                    </div>
+
+
+                 
                 </div>
             </nav>
         </>
