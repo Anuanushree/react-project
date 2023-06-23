@@ -1,66 +1,37 @@
-import {useState} from 'react'
+import React, { useState } from 'react'
 
-function Create(){
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const handleName = (e) => {
-        setName(e.target.value);
-        // setSubmitted(false);
-    };
-
-    // Handling the email change
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-        // setSubmitted(false);
-    };
-
-    // Handling the password change
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-        // setSubmitted(false);
-    };
-
-    // Handling the form submission
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (name === '' || email === '' || password === '') {
-    //         setError(true);
-        // } else {
-        //     setSubmitted(true);
-        //     setError(false);
-        // }
-        // }
+function Create() {
+    const [name, setname] = useState(' ')
+    const [email, setemail] = useState(' ')
+    const [password, setpassword] = useState(' ')
+    
+    // const addname = (e) => {
+    //     const namevalue = (e.target.value);
+    //     setname(namevalue)
     // }
-  return (
-      <div className="form">
-          <div>
-              <h1>User Registration</h1>
-          </div>
-          <form>
-           
-              <label className="label">Name</label>
-              <input onChange={handleName} className="input"
-                  value={name} type="text" />
+    const addemail = (e) => {
+        setemail(e.target.value);
+    }
+    const addpassword = (e) => {
+        setpassword(e.target.value);
+    }
+    const handlesubmit = () => {
+        
+        setname(v.innerhtml)
+        console.log(email)
+    }
+    return (
+        <div>
+            <label>Name</label>
+            <input type='text' value={name} />
+            <label>Email</label>
+            <input type='text' value={email} onChange={addemail} />
+            <label>password</label>
+            <input type='text' value={password} onChange={addpassword} />
+            <button onClick={handlesubmit}>click me</button>
+            <p>{name}</p>
+        </div>
+    )
+}
 
-              <label className="label">Email</label>
-              <input onChange={handleEmail} className="input"
-                  value={email} type="email" />
-
-              <label className="label">Password</label>
-              <input onChange={handlePassword} className="input"
-                  value={password} type="password" />
-
-              <button className="btn"
-                  type="submit">
-                  Submit
-              </button>
-              
-          </form>
-      </div>
-  )
-  }
-
-
-export default Create;
+export default Create
