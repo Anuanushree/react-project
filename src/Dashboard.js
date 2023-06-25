@@ -32,7 +32,7 @@ function Dashboard() {
                     </li>
                     <hr className="sidebar-divider"></hr>
                     <li className="nav-item ">
-                        <Link className="nav-link" to="/dashboard">
+                        <Link className="nav-link" to="/list">
                             <i className="fas fa-address-card"></i>
                             {/* <FontAwesomeIcon icon={faTachometerAlt} /> */}
                             <span>List Users</span>

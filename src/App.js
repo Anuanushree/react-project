@@ -81,21 +81,55 @@
 
 // export default App
 
-import React from 'react'
+import React, { useState } from 'react'
 import Dashboard from './Dashboard';
-import Create from './Create-user';
+import Create from './components/Create-user';
+import Edit from './components/Edit-user';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import List from './components/list-user';
 function App() {
+  const [tables, settable] = useState([])
+  
+  const [formObject, setFormObject] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const onValChange = (event) => {
+    const value = (res) => ({
+      ...res,
+      [event.target.name]: event.target.value,
+    });
+    setFormObject(value);
+  };
+
+  const handlesubmit = (event) => {
+    event.preventDefault();
+
+    // const checkVal = !Object.values(formObject).every((res) => res === "");
+    // if (checkVal) {
+      const dataObj = (data) => [...data, formObject];
+      settable(dataObj);
+      setFormObject('')
+      const isEmpty = { name: "", email: "", password: "" };
+      setFormObject(isEmpty);
+    // }
+  }
   return (
     <Router>
-      {/* <Create/> */}
+
       <div id="page-top">
         <div id="wrapper">
           <Dashboard />
+
           <div className="container-fluid">
             <div id="content-wrapper" className="d-flex flex-column">
+
               <Routes>
-                <Route path='/create' element={<Create />} />
+                <Route path='/create' element={<Create onValChange={onValChange} formObject={formObject}
+                  handlesubmit={handlesubmit} />} />
+                <Route path='/list' element={<List tables={tables} />} />
+                <Route path='/edit' element={<List tables={tables} />} />
               </Routes>
             </div>
           </div>
