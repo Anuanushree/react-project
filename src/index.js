@@ -10,6 +10,6 @@ import App from './App';
 //     <App />
 //   </React.StrictMode>
 // );
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+let data =[]
+ReactDOM.createRoot(document.getElementById('root')).render(<App data={data} />)
 

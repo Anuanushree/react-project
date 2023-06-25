@@ -1,142 +1,78 @@
-// import React from 'react'
-// import { useContext } from 'react';
-// import { createContext } from 'react'
-// import { useState } from 'react'
-
-// const MessageContext = createContext();
-
-// function GrandChildComponent(){
-//   const message = useContext(MessageContext)
-//   return(
-//     <div>
-//       <h2>GrandChildComponent msg </h2>
-//       <p>{message}</p>
-//     </div>
-//   )
-// }
-// function Childnode(){
-// const message = useContext(MessageContext)
-//   return(
-//     <div>
-//       <h2>childnode</h2>
-//      <p>{message}</p>
-//      <GrandChildComponent/>
-//     </div>
-//   )
-// }
-// function App() {
-//  const[message ,setMessage]=useState('hello from app');
-// // const message = 'Hello from app' 
-// return (
-//     <div>
-//      <h2>parent node</h2>
-//       <MessageContext.Provider value={message}>
-//        <Childnode/>
-//        {/* <GrandChildComponent/> */}
-//      </MessageContext.Provider>
-//     </div>
-//   )
-// }
-
-// export default App
-
-
-// import React from 'react'
-// import { useState } from 'react'
-// import { createContext } from 'react'
-// import { useContext } from 'react'
-
-// const MessageContext = createContext()
-
-// function ChildComponent(){
-//   const {profileName,setProfileName}=useContext(MessageContext); 
-
-//   let onchangeProfileHandler=(event)=>{
-//     setProfileName(event.target.value);
-//   }
-//   return(
-// <div>
-//   <h2>Profile Name :{profileName}</h2>
-//   <input
-//    type='text'
-//    value ={profileName}
-//    onChange={onchangeProfileHandler}
-//   />
-
-// </div>
-//   )
-// }
-
-// function App() {
-//   const [profileName,setProfileName] = useState('')
-//   return (
-//     <div>
-//       <h1>app component</h1>
-//       < MessageContext.Provider value={{profileName,setProfileName}}>
-//       <ChildComponent/>
-//       </MessageContext.Provider>
-//     </div>
-//   )
-// }
-
-// export default App
-
 import React, { useState } from 'react'
-import Dashboard from './Dashboard';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Create from './components/Create-user';
-import Edit from './components/Edit-user';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import List from './components/list-user';
-function App() {
-  const [tables, settable] = useState([])
-  
-  const [formObject, setFormObject] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-  const onValChange = (event) => {
-    const value = (res) => ({
-      ...res,
-      [event.target.name]: event.target.value,
-    });
-    setFormObject(value);
-  };
+import Edit from './components/Edit-user';
+import Dashboard from './components/Dashboard';
 
-  const handlesubmit = (event) => {
+function App(props) {
+  const [array, setArray] = useState(props.data);
+  const [name, setName] = useState('');
+  const [email, setemail] = useState('');
+  const [password, setpassword] = useState('');
+  const [phn, setphn] = useState('');
+  const [textarea, settextarea] = useState('');
+
+  let handlesubmit = (event) => {
     event.preventDefault();
 
-    // const checkVal = !Object.values(formObject).every((res) => res === "");
-    // if (checkVal) {
-      const dataObj = (data) => [...data, formObject];
-      settable(dataObj);
-      setFormObject('')
-      const isEmpty = { name: "", email: "", password: "" };
-      setFormObject(isEmpty);
-    // }
+    let object = {
+      id: array.length + 1,
+      name: name,
+      email: email,
+      password:password,
+      phn:phn,
+      textarea:textarea,
+    }
+    setArray(array.concat(object));
+    console.log(object)
+    setName('');
+    setemail('');
+    setphn('');
+    setpassword('');
+    settextarea('');
   }
+
+  let addname = (event) => {
+    setName(event.target.value)
+  }
+
+  let addemail = (event) => {
+    setemail(event.target.value)
+  }
+  let addpassword = (event) => {
+    setpassword(event.target.value)
+  }
+  let addphn = (event) => {
+    setphn(event.target.value)
+  }
+  let addtextarea = (event) => {
+    settextarea(event.target.value)
+  }
+
   return (
     <Router>
-
-      <div id="page-top">
-        <div id="wrapper">
-          <Dashboard />
-
-          <div className="container-fluid">
-            <div id="content-wrapper" className="d-flex flex-column">
+    <div id="page-top">
+      <div id="wrapper">
+        <Dashboard />
+        <div id="content-wrapper" className="d-flex flex-column">
+          <div >
+            <div className="container-fluid">
 
               <Routes>
-                <Route path='/create' element={<Create onValChange={onValChange} formObject={formObject}
-                  handlesubmit={handlesubmit} />} />
-                <Route path='/list' element={<List tables={tables} />} />
-                <Route path='/edit' element={<List tables={tables} />} />
+
+                <Route path='/' element={<Create handlesubmit={handlesubmit}
+                  addname={addname} addpassword={addpassword} addtextarea={addtextarea} addemail={addemail} name={name}
+                  email={email} addphn={addphn} password={password} phn={phn} textarea={textarea} />} />
+                <Route path='/list' element={<List array={array} />} />
+                <Route path='/edit' element={<Edit array={array} setArray={setArray} />} />
               </Routes>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </Router>
-
   )
 }
 

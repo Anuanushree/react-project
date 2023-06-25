@@ -1,7 +1,17 @@
 .App {
     text-align: center;
 }
-
+#textbox{
+ width:100%;
+ height:150px;
+}
+.bg{
+    background-color:#e83e8c;
+}
+#bg{
+    background-color:darkgrey;
+    color:black;
+}
 .App-logo {
     height: 40vmin;
     pointer-events: none;
