@@ -4,7 +4,7 @@ function Table({ tabledata }) {
     return (
     <>
         <tr>
-            <td scope="col">{tabledata.id}</td>
+            <td >{tabledata.id}</td>
             <td>{tabledata.name}</td>
             <td>{tabledata.email}</td>
             <td>{tabledata.password}</td>
@@ -20,7 +20,7 @@ function List({array}) {
     return (
         <>
         <br/>
-        <h2>User List</h2>
+            <h2 className='text-center' id='headingtag1'>User List</h2>
         <br/>
             <table className="table table-striped table-dark table-bordered">
             <thead>
@@ -44,16 +44,6 @@ function List({array}) {
     )
 }
 export default List;
-
-// function User() {
-//   return (
-//     <div>
-//         <Create/>
-//     </div>
-//   )
-// }
-
-// export default User
 
 
 

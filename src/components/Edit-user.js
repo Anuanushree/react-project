@@ -1,79 +1,109 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import Delete from './Delete';
+function Update({ array, selectvalue,setselectvalue,setArray }) {
+  const [name, setName] = useState('');
+  const [email, setemail] = useState('');
+  const [password, setpassword] = useState('');
+  const [phn, setphn] = useState('');
+  const [textarea, settextarea] = useState('');
+  useEffect(() => {
+    const findvalue = array.find((n) => n.id === Number(selectvalue))
+  if(findvalue){
+    setName(findvalue.name)
+    setemail(findvalue.email)
+    setpassword(findvalue.password)
+    setphn(findvalue.phn)
+    settextarea(findvalue.textarea)
+    }
+  }, [selectvalue, array])
 
-function Update({ array, selectvalue,setArray }) {
-  const findvalue = array.find((n) => n.id === Number(selectvalue))
-  console.log(selectvalue)
-
-  const handledelete=(event)=>{
+  const handlesubmit = (event) => {
+    console.log("btn clicked")
     event.preventDefault();
-    
-    const newuser= array.filter((items,index)=>index !== selectvalue);
-    setArray(newuser)
 
-    // findvalue.id='';
-    findvalue.name='';
-    findvalue.email='';
-    console.log(newuser)
+    let newobject = {
+      id: selectvalue,
+      name: name,
+      email: email,
+      password: password,
+      phn: phn,
+      textarea: textarea,
+    }
+
+    let changevalue = [...array];
+
+    for (var i = 0; i < changevalue.length; i++) {
+      if (changevalue[i].id === selectvalue) {
+        break;
+      }
+    }
+    changevalue[i] = newobject;
+    setArray([...changevalue])
+    setselectvalue('select option')
+    setName('');
+    setemail('');
+    setphn('');
+    setpassword('');
+    settextarea('');
+
   }
+
   return (
     <>
+ <div>
+        <div id='bg'>
+        <br />
+        <div className='container'>
+          <form className='form'>
+            <div className="mb-3 row">
+              <label className="col-sm-2 col-form-label"> Name</label>
+              <div className="col-sm-10">
+                <input value={name} className="form-control"
+                  onChange={(event) => setName(event.target.value)} placeholder="Your name...." />
+              </div>
+            </div>
+            <div className="mb-3 row">
+              <label className="col-sm-2 col-form-label">Email</label>
+              <div className="col-sm-10">
+                <input value={email} className="form-control"
+                  onChange={(event) => setemail(event.target.value)} placeholder="Your email...." />
+              </div>
+            </div>
 
-<div>
-<h2>Create -user</h2>
-<br />
-<div className='container'>
-<form  className='form'>
-  <div className="mb-3 row">
-    <label className="col-sm-2 col-form-label"> Name</label>
-    <div className="col-sm-10">
-      <input value={findvalue.name} className="form-control"
-        />
-    </div>
-  </div>
-  <div className="mb-3 row">
-    <label className="col-sm-2 col-form-label">Email</label>
-    <div className="col-sm-10">
-      <input value={findvalue.email} className="form-control"
-      />
-    </div>
-  </div>
+            <div className="mb-3 row">
+              <label className="col-sm-2 col-form-label">Password</label>
+              <div className="col-sm-10">
+                <input value={password} className="form-control"
+                  onChange={(event) => setpassword(event.target.value)} placeholder="Your password..." />
+              </div>
+            </div>
+            <div className="mb-3 row">
+              <label className="col-sm-2 col-form-label">Phone Number</label>
+              <div className="col-sm-10">
+                <input value={phn} className="form-control"
+                  onChange={(event) => setphn(event.target.value)} placeholder="Your phone number..." />
+              </div>
+            </div>
+            <div className="mb-3 row">
+              <label className="col-sm-2 col-form-label">About youself</label>
+              <div className="col-sm-10">
+                <textarea name="txtMsg" id="textbox" className="form-control" placeholder="Your Message...."
+                  onChange={(event) => settextarea(event.target.value)} value={textarea}  ></textarea>
+              </div>
+            </div>
+            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button onClick={handlesubmit} className=' btn btn-success btn-lg'>clicked</button>
+              <Delete setselectvalue={setselectvalue} array={array} selectvalue={selectvalue} setArray={setArray} />
+            </div><br />
 
-  <div className="mb-3 row">
-    <label className="col-sm-2 col-form-label">Password</label>
-    <div className="col-sm-10">
-      <input value={findvalue.password} className="form-control"
-        />
-    </div>
-  </div>
-  <div className="mb-3 row">
-    <label  className="col-sm-2 col-form-label">Phone Number</label>
-    <div className="col-sm-10">
-      <input value={findvalue.phn} className="form-control"
-        />
-    </div>
-  </div>
-  <div className="mb-3 row">
-    <label  className="col-sm-2 col-form-label">About youself</label>
-    <div className="col-sm-10">
-      <textarea name="txtMsg" id="textbox" className="form-control" 
-        value={findvalue.textarea}></textarea>
-    </div>
-  </div>
-  <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-  
-    <button className=' btn btn-primary'>updated clicked</button>
-    <button className='btn btn-danger' onClick={handledelete}>Deleted</button>
-  </div>
-
-
-
-    </form>
-  </div>
-</div>
+          </form>
+        </div>
+        </div>
+      </div>
     </>
   )
 }
-function Edit({ array ,setArray}) {
+function Edit({ array, setArray }) {
   const [selectvalue, setselectvalue] = useState('')
 
   let handleEdit = (event) => {
@@ -81,18 +111,19 @@ function Edit({ array ,setArray}) {
   }
   return (
     <>
-    <br/>
+      <br />
+      <h2 className='text-center' id='headingtag1'>Edit-user</h2>
       <label>Select the id  </label>
-      <select  onChange={handleEdit} value={selectvalue}>
-        
+      <select onChange={handleEdit} id='dropdown' value={selectvalue}>
+
         <option className="dropdown-item">--select--</option>
         {array.map((data) =>
 
           <option className="dropdown-item" key={data.id}>{data.id}</option>
         )}
-        
+
       </select>
-      {selectvalue && <Update array={array} selectvalue={selectvalue} setArray={setArray} />}
+      {selectvalue && <Update setselectvalue={setselectvalue} array={array} selectvalue={selectvalue} setArray={setArray} />}
     </>
   )
 }

@@ -6,7 +6,7 @@ function Create({addname,addemail,handlesubmit,name,email,phn,textarea,password 
     
  return (
     <div><br/>
-        <h2>Create -user</h2>
+         <h2 className='text-center' id='headingtag1'>create-user</h2>
         <br />
     <div id='bg'>
         <br />
@@ -35,14 +35,14 @@ function Create({addname,addemail,handlesubmit,name,email,phn,textarea,password 
             </div>
             </div>
             <div className="mb-3 row">
-                <label for="inputPassword" className="col-sm-2 col-form-label">Phone Number</label>
+                <label  className="col-sm-2 col-form-label">Phone Number</label>
                 <div className="col-sm-10">
                 <input value={phn} className="form-control"
                 onChange={addphn} placeholder="Your phone number..." />
             </div>
             </div>
             <div className="mb-3 row">
-                <label for="inputPassword" className="col-sm-2 col-form-label">About youself</label>
+                <label className="col-sm-2 col-form-label">About youself</label>
                 <div className="col-sm-10">
                 <textarea name="txtMsg" id="textbox" className="form-control" placeholder="Your Message...."
                 onChange={addtextarea}  value={textarea}  ></textarea>

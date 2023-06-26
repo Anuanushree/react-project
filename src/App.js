@@ -4,6 +4,7 @@ import Create from './components/Create-user';
 import List from './components/list-user';
 import Edit from './components/Edit-user';
 import Dashboard from './components/Dashboard';
+import './App.css'
 
 function App(props) {
   const [array, setArray] = useState(props.data);
@@ -52,6 +53,8 @@ function App(props) {
 
   return (
     <Router>
+    
+  <h2 className='text-center' id='headingtag'> ADMIN FORM</h2>
     <div id="page-top">
       <div id="wrapper">
         <Dashboard />
