@@ -25,12 +25,12 @@ function List({array}) {
             <table className="table table-striped table-dark table-bordered">
             <thead>
             <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>email</th>
-                <th>password</th>
-                <th>phone number</th>
-                <th>about yourself</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Phone number</th>
+                <th>About yourself</th>
             </tr>
             </thead>
             <tbody>

@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import '../App.css';
-
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faFolder, faLaughWink } from '@fortawesome/free-regular-svg-icons';
-// import { faChartArea, faCog, faTable, faTachometerAlt, faWrench } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 function Dashboard() {
     
@@ -44,27 +40,9 @@ function Dashboard() {
                         <Link className="nav-link" to="/edit">
                             <i className="fas fa-user-edit"></i>
                             {/* <FontAwesomeIcon icon={faTachometerAlt} /> */}
-                            <span>edit-user  </span>
+                            <span>  Edit-user  </span>
                         </Link>
                     </li>
-                    {/* <hr className="sidebar-divider"></hr>
-                    <li className="nav-item ">
-                        <Link className="nav-link" to="/dashboard">
-                            <i className="far fa-id-badge"></i> */}
-                            {/* <FontAwesomeIcon icon={faTachometerAlt} /> */}
-                            {/* <span> profile </span>
-                        </Link>
-                    </li>
-
-                    <hr className="sidebar-divider"></hr>
-                    <li className="nav-item ">
-                        <Link className="nav-link" to="/dashboard">
-                            <i className="fas fa-chalkboard-teacher"></i> */}
-                            {/* <FontAwesomeIcon icon={faTachometerAlt} /> */}
-                            {/* <span>edit-profile  </span>
-                        </Link>
-                    </li> */}
-
                 </ul>
             </div>
         </div>
