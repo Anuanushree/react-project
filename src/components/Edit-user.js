@@ -33,7 +33,7 @@ function Update({ array, selectvalue,setselectvalue,setArray }) {
     let changevalue = [...array];
 
     for (var i = 0; i < changevalue.length; i++) {
-      if (changevalue[i].id === selectvalue) {
+      if (changevalue[i].id == selectvalue) {
         break;
       }
     }
