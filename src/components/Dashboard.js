@@ -27,7 +27,7 @@ function Dashboard() {
                         <Link className="nav-link" to="/">
                             <i className="far fa-id-badge"></i>
                             {/* <FontAwesomeIcon icon={faTachometerAlt} /> */}
-                            <span>Create-user</span>
+                            <span>Teacher Form</span>
                         </Link>
                     </li>
                     <hr className="sidebar-divider"></hr>
@@ -35,7 +35,15 @@ function Dashboard() {
                         <Link className="nav-link" to="/list">
                             <i className="fas fa-address-card"></i>
                             {/* <FontAwesomeIcon icon={faTachometerAlt} /> */}
-                            <span>List Users</span>
+                            <span>Teacher Table</span>
+                        </Link>
+                    </li>
+                    <hr className="sidebar-divider"></hr>
+                    <li className="nav-item ">
+                        <Link className="nav-link" to="/stable">
+                            <i className="fas fa-address-card"></i>
+                            {/* <FontAwesomeIcon icon={faTachometerAlt} /> */}
+                            <span>student table</span>
                         </Link>
                     </li>
 
@@ -44,7 +52,7 @@ function Dashboard() {
                         <Link className="nav-link" to="/edit">
                             <i className="fas fa-user-edit"></i>
                             {/* <FontAwesomeIcon icon={faTachometerAlt} /> */}
-                            <span>edit-user  </span>
+                            <span>Student Form</span>
                         </Link>
                     </li>
                     {/* <hr className="sidebar-divider"></hr>

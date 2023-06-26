@@ -2,36 +2,36 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle'; 
 
-function Create({addname,addemail,handlesubmit,name,email,phn,textarea,password ,addpassword ,addphn,addtextarea}) {
+function Create({addname,addtclass,handlesubmit,name,tclass,phn,experience,subject ,addsubject ,addphn,addexperience}) {
     
  return (
     <div><br/>
         <h2>Create -user</h2>
         <br />
-    <div id='bg'>
+        <div id='bg'>
         <br />
         <div className='container'>
         <form onSubmit={handlesubmit} className='form'>
             <div className="mb-3 row">
-                <label className="col-sm-2 col-form-label"> Name</label>
+                <label className="col-sm-2 col-form-label">Teacher Name</label>
                 <div className="col-sm-10">
                 <input value={name} className="form-control"
                 onChange={addname} placeholder="Your name...." />
             </div>
             </div>
             <div className="mb-3 row">
-                <label  className="col-sm-2 col-form-label">Email</label>
+                <label  className="col-sm-2 col-form-label">Class</label>
                 <div className="col-sm-10">
-                <input value={email} className="form-control"
-                onChange={addemail} placeholder="Your email...." />
+                <input value={tclass} className="form-control"
+                onChange={addtclass} placeholder="Your class...." />
             </div>
             </div>
             
             <div className="mb-3 row">
-                <label className="col-sm-2 col-form-label">Password</label>
+                <label className="col-sm-2 col-form-label">subject</label>
                 <div className="col-sm-10">
-                <input value={password} className="form-control"
-                onChange={addpassword} placeholder="Your password..." />
+                <input value={subject} className="form-control"
+                onChange={addsubject} placeholder="Your subject..." />
             </div>
             </div>
             <div className="mb-3 row">
@@ -42,12 +42,13 @@ function Create({addname,addemail,handlesubmit,name,email,phn,textarea,password 
             </div>
             </div>
             <div className="mb-3 row">
-                <label for="inputPassword" className="col-sm-2 col-form-label">About youself</label>
+                <label for="inputPassword" className="col-sm-2 col-form-label">Experience</label>
                 <div className="col-sm-10">
-                <textarea name="txtMsg" id="textbox" className="form-control" placeholder="Your Message...."
-                onChange={addtextarea}  value={textarea}  ></textarea>
+                    <input value={experience} className="form-control"
+                        onChange={addexperience} placeholder="Your Experience..." />
+                </div>
             </div>
-            </div>
+            
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button className=' btn btn-success btn-lg'>clicked</button>
             </div><br />

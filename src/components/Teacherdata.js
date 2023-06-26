@@ -6,10 +6,10 @@ function Table({ tabledata }) {
         <tr>
             <td scope="col">{tabledata.id}</td>
             <td>{tabledata.name}</td>
-            <td>{tabledata.email}</td>
-            <td>{tabledata.password}</td>
+            <td>{tabledata.tclass}</td>
+            <td>{tabledata.subject}</td>
             <td>{tabledata.phn}</td>
-            <td>{tabledata.textarea}</td>
+            <td>{tabledata.experience}</td>
         </tr>
 
      </>
@@ -35,7 +35,7 @@ function List({array}) {
             </thead>
             <tbody>
             {array.map((tabledata) =>
-                <Table key={tabledata.id} tabledata={tabledata} />
+                <Table key={tabledata.id} array={array} tabledata={tabledata} />
 
             )}
          </tbody>
