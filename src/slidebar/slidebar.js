@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { Link } from "react-router-dom";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faFolder, faLaughWink } from '@fortawesome/free-regular-svg-icons';
 // import { faChartArea, faCog, faTable, faTachometerAlt, faWrench } from '@fortawesome/free-solid-svg-icons';
-import './App.css';
+import '../App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 function Slidebar() {
     return (
@@ -81,4 +81,4 @@ function Slidebar() {
     )
 }
 
-export default Slidebar
+export default Slidebar;

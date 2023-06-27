@@ -3,12 +3,12 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
-import Dashboard from './dashboard';
-import Slidebar from './slidebar';
-import Card from './card';
-import Color from './color';
-import Border from './Border';
-import Button from './Button';
+import Dashboard from './components/menu';
+import Slidebar from './slidebar/slidebar'
+import Card from './components/card';
+import Color from './components/color';
+import Border from './components/Border';
+import Button from './components/Button';
 import './App.css';
 
 

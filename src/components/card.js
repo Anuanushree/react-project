@@ -77,11 +77,8 @@ function Card() {
                     <CardContent contentHeading={contentHeading4} content={content4} />
                     
                 </div>
-
         </div>
-
-
-        // </div>
+   </div>
 
     )
 }
