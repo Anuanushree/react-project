@@ -1,11 +1,12 @@
 import React, { useState} from 'react'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Create from './components/TeacherForm';
-import List from './components/Teacherdata';
+import Create from './components/Form1/TeacherForm';
+import List from './components/Form1/Teacherdata';
 
 import Dashboard from './components/Dashboard';
-import StudentTable from './components/StudentTable';
-import Update from './components/StudentForm';
+import StudentTable from './components/form2/StudentTable';
+import Update from './components/form2/StudentForm';
+import StudentEdit from './components/form2/studentEdit';
 
 
 // Create a context
@@ -13,7 +14,7 @@ import Update from './components/StudentForm';
 
 
 function App(props) {
-  const [studentdata, setStudentdata] = useState([]);
+  const [studentdata, setStudentdata] = useState(props.sdata);
  
   const [array, setArray] = useState(props.data);
   const [name, setName] = useState('');
@@ -58,13 +59,9 @@ function App(props) {
   let addexperience = (event) => {
     setexperience(event.target.value)
   }
-
   return (
     <Router>
-      {/* <MyContext.Provider value={{ studentdata, setStudentdata }}>
-        <Update />
-        <StudentTable />
-      </MyContext.Provider> */}
+      <h2 className='text-center' id='headingStyle'>Teacher Student Management</h2>
       <div id="page-top">
         <div id="wrapper">
           <Dashboard />
@@ -77,10 +74,12 @@ function App(props) {
                   <Route path='/' element={<Create handlesubmit={handlesubmit}
                     addname={addname} addsubject={addsubject} addexperience={addexperience} addtclass={addtclass} name={name}
                     tclass={tclass} addphn={addphn} subject={subject} phn={phn} experience={experience} />} />
-                  <Route path='/list' element={<List array={array} />} />
-                  <Route path='/edit' element={<Update array={array} setArray={setArray} 
+                  <Route path='/Teacherdata' element={<List array={array} />} />
+                  <Route path='/studentForm' element={<Update array={array} setArray={setArray} 
                   setStudentdata={setStudentdata} studentdata={studentdata} />} />
-                  <Route path='/stable' element={<StudentTable studentdata={studentdata} />} />
+                  <Route path='/Studenttable' element={<StudentTable studentdata={studentdata} setstudentdata={setStudentdata} />} />
+                  <Route path='/studentedit' element={<StudentEdit array={array} setArray={setArray}
+                    setStudentdata={setStudentdata} studentdata={studentdata} />}/>
                 </Routes>
               </div>
             </div>

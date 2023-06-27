@@ -6,7 +6,7 @@ import App from './App';
 
 
 let data =[]
-// let sdata = []
-ReactDOM.createRoot(document.getElementById('root')).render(<App data={data} />)
+let sdata = []
+ReactDOM.createRoot(document.getElementById('root')).render(<App data={data} sdata={sdata}/>)
 // ReactDOM.createRoot(document.getElementById('root')).render(<Update sdata={sdata} />)
 

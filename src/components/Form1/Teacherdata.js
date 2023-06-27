@@ -1,10 +1,11 @@
 import React from 'react';
 
 function Table({ tabledata }) {
+
     return (
     <>
         <tr>
-            <td scope="col">{tabledata.id}</td>
+            <td >{tabledata.id}</td>
             <td>{tabledata.name}</td>
             <td>{tabledata.tclass}</td>
             <td>{tabledata.subject}</td>
@@ -20,7 +21,7 @@ function List({array}) {
     return (
         <>
         <br/>
-        <h2>User List</h2>
+        <h2>Teacher Details</h2>
         <br/>
             <table className="table table-striped table-dark table-bordered">
             <thead>
@@ -31,6 +32,7 @@ function List({array}) {
                 <th>password</th>
                 <th>phone number</th>
                 <th>about yourself</th>
+                <th>Edit</th>
             </tr>
             </thead>
             <tbody>

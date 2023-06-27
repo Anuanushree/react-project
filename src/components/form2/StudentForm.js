@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 // import StudentTable from './StudentTable';
-function Update({array , studentdata,setStudentdata}) {
-  
+function Update({ array, studentdata, setStudentdata }) {
+
   const [sname, setsname] = useState('');
   const [sfathername, setsfathername] = useState('');
   const [sclass, setsclass] = useState('');
@@ -9,10 +9,15 @@ function Update({array , studentdata,setStudentdata}) {
   const [sdob, setsdob] = useState('');
   const [saddress, setsaddress] = useState('');
 
+  const inputref = useRef(null);
   const dropdownmenu = {
     width: "100%",
     height: '40px',
   }
+  useEffect(() => {
+    inputref.current.focus()
+  }, [])
+
   let addStudentName = (event) => {
     setsname(event.target.value);
   }
@@ -61,16 +66,16 @@ function Update({array , studentdata,setStudentdata}) {
     <>
 
       <div><br />
-        <h2>Create -user</h2>
+        <h2>Student Form</h2>
         <br />
         <div id='bg'>
           <br />
           <div className='container'>
-            <form className='form' onSubmit={sumbitStudentdata}>
+            <form className='form'  onSubmit={sumbitStudentdata}>
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label">Student Name</label>
                 <div className="col-sm-10">
-                  <input className="form-control"
+                  <input className="form-control" ref={inputref}
                     value={sname} onChange={addStudentName} placeholder="Your name...." />
                 </div>
               </div>
@@ -101,8 +106,6 @@ function Update({array , studentdata,setStudentdata}) {
                     )}
 
                   </select>
-                  {/* <input className="form-control" value={steacher} onChange={addStudentteacher} 
-                placeholder="Your class...." /> */}
                 </div>
               </div>
 
@@ -123,14 +126,14 @@ function Update({array , studentdata,setStudentdata}) {
               </div>
 
               <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button className=' btn btn-success btn-lg' >clicked</button>
+                <button className=' btn btn-success btn-lg' >Save</button>
               </div><br />
             </form>
 
           </div>
         </div>
       </div>
-      {/* <StudentTable studentdata={studentdata} /> */}
+
     </>
 
   )
@@ -138,12 +141,4 @@ function Update({array , studentdata,setStudentdata}) {
 
 
 
-export default Update
-// import React, { createContext } from 'react';
-
-// Create a context
-// const MyContext = createContext();
-// const contextValue = 'Hello, World!';
-// <MyContext.Provider value={contextValue}>
-//   <MyComponent />
-// </MyContext.Provider>
+export default Update;
