@@ -34,6 +34,14 @@ function Dashboard() {
                             <span>List Users</span>
                         </Link>
                     </li>
+                    <hr className="sidebar-divider"></hr>
+                    <li className="nav-item ">
+                        <Link className="nav-link" to="/list/1">
+                            <i className="fas fa-address-card"></i>
+                            {/* <FontAwesomeIcon icon={faTachometerAlt} /> */}
+                            <span>List Users</span>
+                        </Link>
+                    </li>
 
                     <hr className="sidebar-divider"></hr>
                     <li className="nav-item ">

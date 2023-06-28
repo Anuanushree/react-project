@@ -102,7 +102,7 @@ function Update({ array, selectvalue,setselectvalue,setArray }) {
       </div>
     </>
   )
-}
+  }
 function Edit({ array, setArray }) {
   const [selectvalue, setselectvalue] = useState('')
 

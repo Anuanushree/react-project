@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useParams } from 'react'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Create from './components/Create-user';
 import List from './components/list-user';
 import Edit from './components/Edit-user';
 import Dashboard from './components/Dashboard';
+// import EditId from './components/EditId';
 import './App.css'
 
 function App(props) {
@@ -21,9 +22,9 @@ function App(props) {
       id: array.length + 1,
       name: name,
       email: email,
-      password:password,
-      phn:phn,
-      textarea:textarea,
+      password: password,
+      phn: phn,
+      textarea: textarea,
     }
     setArray(array.concat(object));
     console.log(object)
@@ -50,31 +51,43 @@ function App(props) {
   let addtextarea = (event) => {
     settextarea(event.target.value)
   }
-
+  function EditId({ array }) {
+    const { id } = useParams();
+    // const data = array.find(n => n.id === id);
+    // console.log(data)
+    return (
+      <div>
+        <p>id</p>
+        {/* <p>{data.id}</p>
+        <p>{data.name}</p> */}
+      </div>
+    )
+  }
   return (
     <Router>
-    
-  <h2 className='text-center' id='headingtag'> ADMIN FORM</h2>
-    <div id="page-top">
-      <div id="wrapper">
-        <Dashboard />
-        <div id="content-wrapper" className="d-flex flex-column">
-          <div >
-            <div className="container-fluid">
 
-              <Routes>
+      <h2 className='text-center' id='headingtag'> ADMIN FORM</h2>
+      <div id="page-top">
+        <div id="wrapper">
+          <Dashboard />
+          <div id="content-wrapper" className="d-flex flex-column">
+            <div >
+              <div className="container-fluid">
 
-                <Route path='/' element={<Create handlesubmit={handlesubmit}
-                  addname={addname} addpassword={addpassword} addtextarea={addtextarea} addemail={addemail} name={name}
-                  email={email} addphn={addphn} password={password} phn={phn} textarea={textarea} />} />
-                <Route path='/list' element={<List array={array} />} />
-                <Route path='/edit' element={<Edit array={array} setArray={setArray} />} />
-              </Routes>
+                <Routes>
+
+                  <Route path='/' element={<Create handlesubmit={handlesubmit}
+                    addname={addname} addpassword={addpassword} addtextarea={addtextarea} addemail={addemail} name={name}
+                    email={email} addphn={addphn} password={password} phn={phn} textarea={textarea} />} />
+                  <Route path='/list' element={<List array={array} />} />
+                  <Route path='/edit' element={<Edit array={array} setArray={setArray} />} />
+                  <Route path='/list/:id' element={<EditId array={array} />} />
+                </Routes>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </Router>
   )
 }
