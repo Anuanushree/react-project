@@ -50,15 +50,16 @@ function Create({ library, setLibrary }) {
             return errors;
         },
         onSubmit: (values) => {
-            setAuthor(values.author)
-            setBookName(values.bookName)
-            setYear(values.year)
+            // setAuthor(values)
+            // setBookName(values.bookName)
+            // setYear(values.year)
             const object = {
                 id: library.length + 1,
-                bookName: bookName,
-                author: author,
-                year: year
+                bookName: values.bookName,
+                author:values.author,
+                year: values.year
             }
+            console.log(values)
             setLibrary(library.concat(object))
         }
     })

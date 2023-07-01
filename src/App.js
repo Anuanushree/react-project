@@ -3,9 +3,9 @@ import Read from './components/Read';
 import Create from './components/create';
 import Update from './components/Update';
 import {Link, BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-function App() {
+function App(props) {
 
-const[library,setLibrary]= useState([]);
+const[library,setLibrary]= useState(props.library);
   return (
     <Router>
       <Link to='/'> read</Link>

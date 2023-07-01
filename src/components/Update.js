@@ -7,22 +7,31 @@ function Update({ library, setLibrary }) {
 
 
     const id = localStorage.getItem('id');
-    // useEffect(() => {
-    //     const findValue = library.find((n) => n.id == id)
-    //   console.log(findValue)
-    //     if (findValue) {
-    //        bookName: setBookName(findValue.bookName);
-    //         setAuthor(findValue.author);
-    //         setYear(findValue.year);
-    //     }
-    // })
+        const findValue = library.find((n) => n.id == id)
+   
+        // useEffect(()=>{
+        //  if(findValue){
+        //      const object = {
+        //          id: library.length + 1,
+        //          bookName: findValue.bookName,
+        //          author: findValue.author,
+        //          year: findValue.year
+        //      }
+        //  }
 
+        // },[])
 
     const formik = useFormik({
         initialValues: {
-            bookName:'',
-            author: 'hii',
-            year: '',
+            // if(findValue) {
+                // const object = {
+                    // id: library.length + 1,
+                    bookName:findValue.bookName,
+                    author: findValue.author,
+                    year: findValue.year
+                // }
+            // year: '',
+            // }
         },
         validate: (values) => {
             const errors = {};
@@ -46,14 +55,12 @@ function Update({ library, setLibrary }) {
             return errors;
         },
         onSubmit: (values) => {
-            setAuthor(values.author)
-            setBookName(values.bookName)
-            setYear(values.year)
+           
             const object = {
-                id: library.length + 1,
-                bookName: bookName,
-                author: author,
-                year: year
+                id:id,
+                bookName: values.bookName,
+                author: values.author,
+                year: values.year
             }
             let changevalue = [...library];
 
@@ -64,9 +71,7 @@ function Update({ library, setLibrary }) {
             }
             changevalue[i] = object;
             setLibrary([...changevalue]);
-            setAuthor('');
-            setBookName('');
-            setYear('');
+            initialValues();
         }
     })
 
