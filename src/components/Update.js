@@ -58,7 +58,7 @@ function Update({ library, setLibrary }) {
             }
             changevalue[i] = object;
             setLibrary([...changevalue]);
-            navigate('/read')
+            navigate('/')
         }
     })
 
