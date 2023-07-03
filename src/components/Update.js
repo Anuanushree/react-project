@@ -1,66 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import { Formik, useFormik } from 'formik';
+import { useFormik } from 'formik';
+import { Link, useNavigate } from "react-router-dom";
+ 
 function Update({ library, setLibrary }) {
-    const [bookName, setBookName] = useState('');
-    const [author, setAuthor] = useState('');
-    const [year, setYear] = useState('');
-
 
     const id = localStorage.getItem('id');
-        const findValue = library.find((n) => n.id == id)
-   
-        // useEffect(()=>{
-        //  if(findValue){
-        //      const object = {
-        //          id: library.length + 1,
-        //          bookName: findValue.bookName,
-        //          author: findValue.author,
-        //          year: findValue.year
-        //      }
-        //  }
+    const findValue = library.find((n) => n.id == id)
 
-        // },[])
-
+    const navigate = useNavigate();
+    function HandleDelete() {
+        const navigate = useNavigate;
+        for (var i = 0; i < library.length; i++) {
+            if (library[i].id == id) {
+                break;
+            }
+        }
+        library.splice(i, 1);
+        console.log('deleted')
+    }
     const formik = useFormik({
         initialValues: {
-            // if(findValue) {
-                // const object = {
-                    // id: library.length + 1,
-                    bookName:findValue.bookName,
-                    author: findValue.author,
-                    year: findValue.year
-                // }
-            // year: '',
-            // }
+
+            Name: findValue.Name,
+            bookName: findValue.bookName,
+            location: findValue.location
+
         },
         validate: (values) => {
             const errors = {};
-            if (!values.bookName) {
-                errors.bookName = 'Required*';
-            } else if (values.bookName.length > 15) {
-                errors.bookName = 'Must be 15 characters or less';
+            if (!values.Name) {
+                errors.Name = '* FILL THE DETAILS *';
             }
-            if (!values.author) {
-                errors.author = 'Required*';
-            } else if (values.author.length > 15) {
-                errors.author = 'Must be 15 characters or less';
+            if (!values.bookName) {
+                errors.bookName = '* FILL THE DETAILS *';
             }
 
-            if (!values.year) {
-                errors.year = 'Required*';
-            }
-            else if (values.year.length != 4) {
-                errors.year = 'INVALID YEAR';
+            if (!values.location) {
+                errors.location = '* FILL THE DETAILS *';
             }
             return errors;
         },
         onSubmit: (values) => {
-           
+
             const object = {
-                id:id,
+                id: id,
                 bookName: values.bookName,
-                author: values.author,
-                year: values.year
+                Name: values.Name,
+                location: values.location,
+                date:findValue.date
+
             }
             let changevalue = [...library];
 
@@ -71,41 +58,49 @@ function Update({ library, setLibrary }) {
             }
             changevalue[i] = object;
             setLibrary([...changevalue]);
-            initialValues();
+            navigate('/read')
         }
     })
 
     return (
+        <div className='container text-center form-design'>
+            <form onSubmit={formik.handleSubmit} >
+                <h2>Update Form</h2><br/>
+                <label>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <input name="Name"
+                    id="Name"
+                    type='text'
+                    onChange={formik.handleChange}
+                    value={formik.values.Name}
+                />
+                <div className='pl-5' >{formik.errors.Name}</div>
+                <br />
+                <label  >Book Name &nbsp;:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;
+                <input name="bookName"
+                    id="bookName"
+                    type='text'
+                    onChange={formik.handleChange}
+                    value={formik.values.bookName}
+                />
+                <div className='pl-5' >{formik.errors.bookName}</div>
+                <br />
+                <label>Location &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</label> &nbsp;&nbsp;&nbsp;&nbsp;
 
-        <form onSubmit={formik.handleSubmit} >
-            <label>Book Name</label>
-            <input name="bookName"
-                id="bookName"
-                type='text'
-                onChange={formik.handleChange}
-                value={formik.values.bookName}
-            />
-            {formik.errors.bookName ? <div>{formik.errors.bookName}</div> : null}
-            <br />
-            <label>Author</label>
-            <input name="author"
-                id="author"
-                type='text'
-                onChange={formik.handleChange}
-                value={formik.values.author}
-            />
-            {formik.errors.author ? <div>{formik.errors.author}</div> : null}
-            <label>Year</label>
-            <input name="year"
-                id="year"
-                type='text'
-                onChange={formik.handleChange}
-                value={formik.values.year}
-            />
-            {formik.errors.year ? <div>{formik.errors.year}</div> : null}
+                <input name="location"
+                    id="location"
+                    type='text'
 
-            <br /> <button type="submit">Submit</button>
-        </form>
+                    onChange={formik.handleChange}
+                    value={formik.values.location}
+                />
+                <div className='pl-5'>{formik.errors.location}</div>
+
+                <br /> <button type="submit" className='btn btn-success'>Update</button>&nbsp;&nbsp;
+                <Link to='/'><button type='submit' className='btn btn-danger' onClick={() => HandleDelete()}>delete</button></Link>
+            </form>
+        </div>
 
     )
 }

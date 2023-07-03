@@ -1,0 +1,72 @@
+#heading {
+    text-align: center;
+    background-color: azure;
+}
+
+#libmeaning {
+    width: 100;
+    height: 500px;
+    align-items: center;
+    justify-items: center;
+}
+
+.button {
+    margin-left: calc(100%/2);
+    top: 50%;
+    text-align: center;
+    color: blue;
+    background-color: aliceblue;
+    padding: 10px;
+    align-items: center;
+    font-size: larger;
+}
+
+.bookImage {
+    width: 80%;
+    height: 60%;
+    margin: 20px;
+}
+
+#card-body {
+    width: 100%;
+    background-color: darkgrey;
+    font-size: larger;
+    margin-bottom: 10px;
+}
+
+#nav {
+    margin-left: 50%;
+}
+
+.form-design {
+  
+    border: 1px solid black;
+    margin-top: 100px;
+    width: 50%;
+    padding-left: 20px;
+    padding: 10px;
+    background-color: deeppink;
+}
+
+.btn-margin {
+    margin-left: 20%;
+}
+
+.image {
+    height: 120px;
+    width: 100%;
+
+}
+
+.card-container {
+    margin-left: 10%;
+    margin-right: 10%;
+
+    padding-top: 20px;
+    background-color: darkgrey;
+    border: 1px solid black;
+}
+
+#button {
+    width: 50%;
+}

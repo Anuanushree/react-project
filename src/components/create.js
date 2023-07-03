@@ -1,101 +1,86 @@
-import React, { useState } from 'react';
-import { Formik, useFormik } from 'formik';
-import * as Yup from 'yup';
+import React from 'react';
+import {useFormik } from 'formik';
+import { useNavigate } from "react-router-dom";
 function Create({ library, setLibrary }) {
-    const [bookName, setBookName] = useState('');
-    const [author, setAuthor] = useState('');
-    const [year, setYear] = useState('');
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
+    const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
 
-    //     const objects = {
-    //         id: library.length + 1,
-    //         bookName: bookName,
-    //         author: author,
-    //         year: year
-    //     }
-    //     setLibrary(library.concat(objects))
-    //     setAuthor('');
-    //     setBookName('');
-    //     setYear('');
-    // }
-
-    // const validate = 
+    const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
+            Name: '',
             bookName: '',
-            author: '',
-            year: '',
+            location: '',
         },
         validate: (values) => {
             const errors = {};
-            if (!values.bookName) {
-                errors.bookName = 'Required*';
-            } else if (values.bookName.length > 15) {
-                errors.bookName = 'Must be 15 characters or less';
+            if (!values.Name) {
+                errors.Name = '* FILL THE DETAILS *';
             }
-            if (!values.author) {
-                errors.author = 'Required*';
-            } else if (values.author.length > 15) {
-                errors.author = 'Must be 15 characters or less';
+            if (!values.bookName) {
+                errors.bookName = '* FILL THE DETAILS *';
             }
 
-            if (!values.year) {
-                errors.year = 'Required*';
-            }
-            else if (values.year.length != 4) {
-                errors.year = 'INVALID YEAR';
+            if (!values.location) {
+                errors.location = '* FILL THE DETAILS *';
             }
             return errors;
         },
         onSubmit: (values) => {
-            // setAuthor(values)
-            // setBookName(values.bookName)
-            // setYear(values.year)
+
             const object = {
                 id: library.length + 1,
+                Name: values.Name,
                 bookName: values.bookName,
-                author:values.author,
-                year: values.year
+                location: values.location,
+                date: date,
             }
             console.log(values)
-            setLibrary(library.concat(object))
+            setLibrary(library.concat(object));
+            navigate('/read')
         }
     })
 
     return (
-
-        <form onSubmit={formik.handleSubmit} >
-            <label>Book Name</label>
-            <input name="bookName"
-                id="bookName"
-                type='text'
-                onChange={formik.handleChange}
-                value={formik.values.bookName}
-            />
-            {formik.errors.bookName ? <div>{formik.errors.bookName}</div> : null}
+        <div className='container text-center form-design'>
+            <h2>WELCOME BUDDY</h2>
             <br />
-            <label>Author</label>
-            <input name="author"
-                id="author"
-                type='text'
-                onChange={formik.handleChange}
-                value={formik.values.author}
-            />
-            {formik.errors.author ? <div>{formik.errors.author}</div> : null}
-            <label>Year</label>
-            <input name="year"
-                id="year"
-                type='text'
-                onChange={formik.handleChange}
-                value={formik.values.year}
-            />
-            {formik.errors.year ? <div>{formik.errors.year}</div> : null}
+            <form onSubmit={formik.handleSubmit} >
+                <label>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <input name="Name"
+                    id="Name"
+                    type='text'
+                    onChange={formik.handleChange}
+                    value={formik.values.Name}
+                />
+                <div className='pl-5' >{formik.errors.Name}</div>
+                <br />
+                <label  >Book Name &nbsp;:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;
+                <input name="bookName"
+                    id="bookName"
+                    type='text'
+                    onChange={formik.handleChange}
+                    value={formik.values.bookName}
+                />
+                <div className='pl-5' >{formik.errors.bookName}</div> 
+                <br />
+                <label>Location &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</label> &nbsp;&nbsp;&nbsp;&nbsp;
 
-            <br /> <button type="submit">Submit</button>
-        </form>
+                <input name="location"
+                    id="location"
+                    type='text'
 
+                    onChange={formik.handleChange}
+                    value={formik.values.location}
+                />
+                <div className='pl-5'>{formik.errors.location}</div>
+
+                <br /> <button type="submit" className='btn btn-success'>Submit</button>
+            </form>
+        </div>
     )
 }
 
