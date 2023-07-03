@@ -38,7 +38,7 @@ function Create({ library, setLibrary }) {
             }
             console.log(values)
             setLibrary(library.concat(object));
-            navigate('/read')
+            navigate('/')
         }
     })
 
