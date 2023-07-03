@@ -92,7 +92,7 @@ function Update({ array, selectvalue,setselectvalue,setArray }) {
               </div>
             </div>
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button onClick={handlesubmit} className=' btn btn-success btn-lg'>clicked</button>
+              <button onClick={handlesubmit} className=' btn btn-success btn-lg'>Save</button>
               <Delete setselectvalue={setselectvalue} array={array} selectvalue={selectvalue} setArray={setArray} />
             </div><br />
 

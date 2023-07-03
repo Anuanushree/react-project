@@ -49,7 +49,7 @@ function Create({addname,addemail,handlesubmit,name,email,phn,textarea,password 
             </div>
             </div>
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button className=' btn btn-success btn-lg'>clicked</button>
+                <button className=' btn btn-success btn-lg'>Save</button>
             </div><br />
 
         </form>

@@ -1,6 +1,9 @@
 import React from 'react';
 
+
+
 function Table({ tabledata }) {
+
     return (
     <>
         <tr>
@@ -10,7 +13,7 @@ function Table({ tabledata }) {
             <td>{tabledata.password}</td>
             <td>{tabledata.phn}</td>
             <td>{tabledata.textarea}</td>
-        </tr>
+           </tr>
 
      </>
     )
