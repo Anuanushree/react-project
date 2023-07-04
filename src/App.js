@@ -1,4 +1,5 @@
 import React, { useState} from 'react'
+
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Create from './components/Form1/TeacherForm';
 import List from './components/Form1/Teacherdata';
@@ -10,11 +11,8 @@ import StudentEdit from './components/form2/studentEdit';
 import TeacherEdit from './components/Form1/TeacherEdit';
 
 
-// Create a context
-// const MyContext = createContext();
-
-
 function App(props) {
+ 
   const [studentdata, setStudentdata] = useState(props.sdata);
  
   const [array, setArray] = useState(props.data);
