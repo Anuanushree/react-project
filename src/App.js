@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import StudentTable from './components/form2/StudentTable';
 import Update from './components/form2/StudentForm';
 import StudentEdit from './components/form2/studentEdit';
+import TeacherEdit from './components/Form1/TeacherEdit';
 
 
 // Create a context
@@ -61,7 +62,7 @@ function App(props) {
   }
   return (
     <Router>
-      <h2 className='text-center' id='headingStyle'>Teacher Student Management</h2>
+      <h2 className='text-center' id='headingStyle'>School Admission</h2>
       <div id="page-top">
         <div id="wrapper">
           <Dashboard />
@@ -74,12 +75,13 @@ function App(props) {
                   <Route path='/' element={<Create handlesubmit={handlesubmit}
                     addname={addname} addsubject={addsubject} addexperience={addexperience} addtclass={addtclass} name={name}
                     tclass={tclass} addphn={addphn} subject={subject} phn={phn} experience={experience} />} />
-                  <Route path='/Teacherdata' element={<List array={array} />} />
+                  <Route path='/Teacherdata' element={<List array={array} setArray={setArray}/>} />
                   <Route path='/studentForm' element={<Update array={array} setArray={setArray} 
                   setStudentdata={setStudentdata} studentdata={studentdata} />} />
                   <Route path='/Studenttable' element={<StudentTable studentdata={studentdata} setstudentdata={setStudentdata} />} />
                   <Route path='/studentedit' element={<StudentEdit array={array} setArray={setArray}
                     setStudentdata={setStudentdata} studentdata={studentdata} />}/>
+                  <Route path='/teacheredit' element={<TeacherEdit array={array} setArray={setArray}/>} />
                 </Routes>
               </div>
             </div>

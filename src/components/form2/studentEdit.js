@@ -15,7 +15,7 @@ function StudentEdit({ studentdata, setStudentdata,array }) {
     const id = localStorage.getItem('id')
     useEffect(() => {
         const findValue = studentdata.find((n) => n.id == id)
-        console.log(findValue)
+  
         if (findValue) {
             setsname(findValue.sname);
             setsclass(findValue.sclass);
