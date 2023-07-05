@@ -60,7 +60,7 @@ function App(props) {
   }
   return (
     <Router>
-      <h2 className='text-center' id='headingStyle'>School Admission</h2>
+      <h2 className='text-center' id='headingStyle'>Admission</h2>
       <div id="page-top">
         <div id="wrapper">
           <Dashboard />

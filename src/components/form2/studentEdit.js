@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-
+import { useNavigate } from 'react-router-dom';
 function StudentEdit({ studentdata, setStudentdata,array }) {
+    const navigate=useNavigate();
     const [sname, setsname] = useState('');
     const [sfathername, setsfathername] = useState('');
     const [sclass, setsclass] = useState('');
@@ -55,6 +56,7 @@ const handleupdate=(event)=>{
     setsdob('');
     setsteacher('');
     setsaddress('');
+    navigate('/Studenttable');
     console.log(studentdata)
 }
 
