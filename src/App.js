@@ -5,9 +5,9 @@ function App({ notes }) {
   const [count, setCount] = useState(0);
 
   const addcard = (event) => {
-    if (event.target.innerText === "Add to cart") {
+    if (event.target.innerText == "Add to cart") {
       addItem(event);
-    } else if (event.target.innerText === "Remove from Cart") {
+    } else if (event.target.innerText == "Remove from Cart") {
       removeItem(event);
     }
   }
@@ -19,7 +19,7 @@ function App({ notes }) {
 
   function removeItem(event) {
     setCount(count - 1);
-    event.target.innerText = "Add to Cart";
+    event.target.innerText = "Add to cart";
   }
 
   return (
