@@ -71,31 +71,33 @@ function Update({ library, setLibrary }) {
                 <input name="Name"
                     id="Name"
                     type='text'
+                    placeholder='Enter your name'
                     onChange={formik.handleChange}
                     value={formik.values.Name}
                 />
-                <div className='pl-5' >{formik.errors.Name}</div>
+                <div className='pl-5 text-danger'>{formik.errors.Name}</div>
                 <br />
                 <label  >Book Name &nbsp;:</label>&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;
                 <input name="bookName"
                     id="bookName"
                     type='text'
+                    placeholder='Ebter your book name'
                     onChange={formik.handleChange}
                     value={formik.values.bookName}
                 />
-                <div className='pl-5' >{formik.errors.bookName}</div>
+                <div className='pl-5 text-danger' >{formik.errors.bookName}</div>
                 <br />
                 <label>Location &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</label> &nbsp;&nbsp;&nbsp;&nbsp;
 
                 <input name="location"
                     id="location"
                     type='text'
-
+                    placeholder='Ebter your location'
                     onChange={formik.handleChange}
                     value={formik.values.location}
                 />
-                <div className='pl-5'>{formik.errors.location}</div>
+                <div className='pl-5 text-danger'>{formik.errors.location}</div>
 
                 <br /> <button type="submit" className='btn btn-success'>Update</button>&nbsp;&nbsp;
                 <Link to='/'><button type='submit' className='btn btn-danger' onClick={() => HandleDelete()}>delete</button></Link>

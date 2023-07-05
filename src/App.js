@@ -6,6 +6,7 @@ import Create from './components/create';
 import libraryImage from './assets/libraryImage/libraryImages.jpeg'
 import Update from './components/Update';
 import { useNavigate } from 'react-router-dom';
+
 import './App.css';
 import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App(props) {
@@ -22,7 +23,7 @@ function App(props) {
       <div style={style}>
         <h1 id="heading">LIBRARY MANAGEMENT</h1>
         {/* <Link to='/read' className='nav'> <button >view-details</button></Link> */}
-        <Link to='/create' id='nav'><button>Add-user</button></Link>
+        <Link to='/create' id='nav'><button className='btn-lg btn-secondary'>Add-user</button></Link>
       <Routes>
         <Route path='/' element={<Read library={library} />} />
         <Route path='/create' element={<Create library={library} setLibrary={setLibrary} />} />

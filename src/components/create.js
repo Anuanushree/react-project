@@ -34,6 +34,7 @@ function Create({ library, setLibrary }) {
                 Name: values.Name,
                 bookName: values.bookName,
                 location: values.location,
+        
                 date: date,
             }
             console.log(values)
@@ -44,7 +45,7 @@ function Create({ library, setLibrary }) {
 
     return (
         <div className='container text-center form-design'>
-            <h2>WELCOME BUDDY</h2>
+            <h2>WELCOME USER</h2>
             <br />
             <form onSubmit={formik.handleSubmit} >
                 <label>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -52,31 +53,33 @@ function Create({ library, setLibrary }) {
                 <input name="Name"
                     id="Name"
                     type='text'
+                    placeholder='Enter your name'
                     onChange={formik.handleChange}
                     value={formik.values.Name}
                 />
-                <div className='pl-5' >{formik.errors.Name}</div>
+                <div className='pl-5 text-danger' >{formik.errors.Name}</div>
                 <br />
                 <label  >Book Name &nbsp;:</label>&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;
                 <input name="bookName"
                     id="bookName"
                     type='text'
+                    placeholder='Enter your book name'
                     onChange={formik.handleChange}
                     value={formik.values.bookName}
                 />
-                <div className='pl-5' >{formik.errors.bookName}</div> 
+                <div className='pl-5 text-danger' >{formik.errors.bookName}</div> 
                 <br />
                 <label>Location &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</label> &nbsp;&nbsp;&nbsp;&nbsp;
 
                 <input name="location"
                     id="location"
                     type='text'
-
+                    placeholder='Ebter your location'
                     onChange={formik.handleChange}
                     value={formik.values.location}
                 />
-                <div className='pl-5'>{formik.errors.location}</div>
+                <div className='pl-5 text-danger'>{formik.errors.location}</div>
 
                 <br /> <button type="submit" className='btn btn-success'>Submit</button>
             </form>
