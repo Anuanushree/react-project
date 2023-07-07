@@ -31,7 +31,7 @@ const notes = [
         id: 4,
         Name: 'Popular Item',
         price: '$40.00',
-        available: 'add to card',
+        available: 'Add to cart',
         important: true
 
     },
@@ -39,7 +39,7 @@ const notes = [
         id: 5,
         Name: ' Sale Item',
         price: ' $50.00| $25.00',
-        available: 'add to card',
+        available: 'Add to cart',
         important: false
 
     },
@@ -47,7 +47,7 @@ const notes = [
         id: 6,
         Name: ' Francy product',
         price: ' $120.00 - $280.00',
-        available: 'add to card',
+        available:'Add to cart',
         important: false
 
     },
@@ -55,7 +55,7 @@ const notes = [
         id: 7,
         Name: ' Special Item',
         price: ' $20.00| $18.00',
-        available: 'add to card',
+        available: 'Add to cart',
         important: true
 
     },
@@ -63,7 +63,7 @@ const notes = [
         id: 8,
         Name: 'Popular Item',
         price: ' $40.00',
-        available: 'add to card',
+        available: 'Add to cart',
         important: true
 
     }
