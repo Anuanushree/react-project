@@ -25,7 +25,6 @@ function App({ notes }) {
   return (
     <div>
       <Navigation count={count} />
-      {/* <button className="btn btn-success p-2 mt-2"><img style={{ width: 30, height: 30 }} src='https://em-content.zobj.net/thumbs/120/toss-face/342/shopping-cart_1f6d2.png' alt="..." /> card : {count}</button> */}
       <div className="text-center" style={{ backgroundColor: "greenyellow", height: 200 }}>
         <h1 className="pt-5">Shop in style</h1>
         <p className="mb-5" >With this shop hompeage template</p>
