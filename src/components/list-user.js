@@ -1,7 +1,4 @@
 import React from 'react';
-
-
-
 function Table({ tabledata }) {
 
     return (
@@ -19,7 +16,7 @@ function Table({ tabledata }) {
     )
 }
 function List({array}) {
-   
+
     return (
         <>
         <br/>

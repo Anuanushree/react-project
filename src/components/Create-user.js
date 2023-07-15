@@ -59,4 +59,4 @@ function Create({addname,addemail,handlesubmit,name,email,phn,textarea,password 
   )
 }
 
-export default Create
+export default Create;

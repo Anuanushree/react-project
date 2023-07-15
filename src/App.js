@@ -1,19 +1,27 @@
-import React, { useState, useParams } from 'react'
+import React, { useState, useParams, useEffect } from 'react'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Create from './components/Create-user';
 import List from './components/list-user';
 import Edit from './components/Edit-user';
 import Dashboard from './components/Dashboard';
+import axios from 'axios';
 // import EditId from './components/EditId';
 import './App.css'
 
-function App(props) {
-  const [array, setArray] = useState(props.data);
+
+function App() {
+  const [array, setArray] = useState([]);
   const [name, setName] = useState('');
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const [phn, setphn] = useState('');
   const [textarea, settextarea] = useState('');
+
+  useEffect(() => {
+    axios
+      .get('https://crud-kb35.onrender.com/user')
+      .then(response => setArray(response.data));
+  });
 
   let handlesubmit = (event) => {
     event.preventDefault();
@@ -26,8 +34,8 @@ function App(props) {
       phn: phn,
       textarea: textarea,
     }
-    setArray(array.concat(object));
-    console.log(object)
+    axios
+      .post('https://crud-kb35.onrender.com/user', object)
     setName('');
     setemail('');
     setphn('');
@@ -51,18 +59,7 @@ function App(props) {
   let addtextarea = (event) => {
     settextarea(event.target.value)
   }
-  function EditId({ array }) {
-    const { id } = useParams();
-    // const data = array.find(n => n.id === id);
-    // console.log(data)
-    return (
-      <div>
-        <p>id</p>
-        {/* <p>{data.id}</p>
-        <p>{data.name}</p> */}
-      </div>
-    )
-  }
+
   return (
     <Router>
 
@@ -81,7 +78,7 @@ function App(props) {
                     email={email} addphn={addphn} password={password} phn={phn} textarea={textarea} />} />
                   <Route path='/list' element={<List array={array} />} />
                   <Route path='/edit' element={<Edit array={array} setArray={setArray} />} />
-                  <Route path='/list/:id' element={<EditId array={array} />} />
+
                 </Routes>
               </div>
             </div>
