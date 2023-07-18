@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { useNavigate } from 'react-router-dom';
-function Create({ array, setArray }) {
-    const navigator = useNavigate();
 
+function Rpassword() {
     return (
 
         <>
@@ -29,28 +27,20 @@ function Create({ array, setArray }) {
                                                     <span className="h1 fw-bold mb-0">Logo</span>
                                                 </div>
 
-                                                <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}>Sign into your account</h5>
-
+                                                <h2 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}>Forgot Password?</h2>
+                                                <h5 className="fw-normal mb-3 pb-3">You can reset your password here.</h5>
                                                 <div className="form-outline mb-4">
-                                                    <input type="email" id="form2Example17" className="form-control form-control-lg" />
-                                                    <label className="form-label" >Email address</label>
-                                                </div>
-
-                                                <div className="form-outline mb-4">
-                                                    <input type="password" id="form2Example27" className="form-control form-control-lg" />
-                                                    <label className="form-label" >Password</label>
+                                                   
+                                                <input type="email" id="form2Example17" className="form-control form-control-lg" />
+                                                <label className="form-label" >Email address</label>
                                                 </div>
 
                                                 <div className="pt-1 mb-4">
-                                                    <button className="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                                                    <button className="btn btn-dark btn-lg btn-block" type="button">Reset your password</button>
                                                 </div>
 
-                                                <a className="small text-muted" href="/resetpassword">Forgot password?</a>
-                                                <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>Don't have an account? <a href="/register"
-                                                    style={{ color: "#393f81" }}>Register here
-                                                </a></p>
-                                                <a  className="small text-muted">Terms of use.</a>
-                                                <a  className="small text-muted">Privacy policy</a>
+                                                <a className="small text-muted">Terms of use.</a>
+                                                <a className="small text-muted">Privacy policy</a>
                                             </form>
 
                                         </div>
@@ -65,4 +55,4 @@ function Create({ array, setArray }) {
     )
 }
 
-export default Create;
+export default Rpassword
