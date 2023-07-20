@@ -2,26 +2,8 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
-function Rpassword() {
-
-    const [email, setEmail] = useState('');
-    const navigator = useNavigate();
-
-    const handlesubmit = async (event) => {
-        event.preventDefault();
-        console.log('btn clicked');
-        console.log(email)
-        try {
-            const response = await axios.post('http://localhost:3001/api/users/reset', { email });
-            navigator('/register')
-        } catch (error) {
-            console.error(error.response.data.error);
-            window.alert('user not found')
-        }
-    }
+function Thankyou() {
     return (
 
         <>
@@ -45,24 +27,8 @@ function Rpassword() {
                                                     <span className="h1 fw-bold mb-0">Logo</span>
                                                 </div>
 
-                                                <h2 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}>Forgot Password?</h2>
-                                                <h5 className="fw-normal mb-3 pb-3">You can reset your password here.</h5>
-                                                <div className="form-outline mb-4">
-
-                                                    <input type="email" id="form2Example17"
-
-                                                        value={email}
-                                                        onChange={(event) => setEmail(event.target.value)}
-                                                        className="form-control form-control-lg" />
-                                                    <label className="form-label" >Email address</label>
-                                                </div>
-
-                                                <div className="pt-1 mb-4">
-                                                    <button className="btn btn-dark btn-lg btn-block"
-                                                        onClick={handlesubmit}
-                                                        type="button">Send </button>
-                                                </div>
-
+                                                <h1>THANK YOU</h1>
+                                                <h2>your password updated successfully</h2>
                                                 <a className="small text-muted">Terms of use.</a>
                                                 <a className="small text-muted">Privacy policy</a>
                                             </form>
@@ -79,4 +45,4 @@ function Rpassword() {
     )
 }
 
-export default Rpassword
+export default Thankyou;
