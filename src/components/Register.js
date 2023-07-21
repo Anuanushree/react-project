@@ -17,6 +17,7 @@ function Register() {
         axios
             .get(`https://forgot-password-s8z0.onrender.com/api/users`)
             .then(response => setArray(response.data))
+            console.log(array)
 
     }, [])
 

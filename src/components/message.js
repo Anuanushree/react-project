@@ -29,8 +29,8 @@ function Message() {
 
                                                 <h1>please wait</h1>
                                                 <h2>reset password link send it in your email</h2>
-                                                <p className="small text-muted">Terms of use.</p>
-                                                <p className="small text-muted">Privacy policy</p>
+                                                <a className="small text-muted">Terms of use.</a>
+                                                <a className="small text-muted">Privacy policy</a>
                                             </form>
 
                                         </div>

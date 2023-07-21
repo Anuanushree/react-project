@@ -29,8 +29,8 @@ function Thankyou() {
 
                                                 <h1>THANK YOU</h1>
                                                 <h2>your password updated successfully</h2>
-                                                <p className="small text-muted">Terms of use.</p>
-                                                <p className="small text-muted">Privacy policy</p>
+                                                <a className="small text-muted">Terms of use.</a>
+                                                <a className="small text-muted">Privacy policy</a>
                                             </form>
 
                                         </div>
