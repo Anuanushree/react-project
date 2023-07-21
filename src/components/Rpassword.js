@@ -7,21 +7,23 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Rpassword() {
-
+    const [sample, setsample] = useState('');
     const [email, setEmail] = useState('');
     const navigator = useNavigate();
 
     const handlesubmit = async (event) => {
         event.preventDefault();
         console.log('btn clicked');
-        console.log(email)
+        // console.log(email)
         try {
-            const response = await axios.post(`https://forgot-password-s8z0.onrender.com/api/users/reset`, { email });
-            console.log(response.data)
+            const response = await axios.post(`http://localhost:3001/api/users/reset`, { email });
+            console.log(response);
+            navigator('/message')
+            setsample(response.data.user)
 
 
         } catch (error) {
-            console.error(error.response.data.error);
+            console.error(error.response.data);
             window.alert('user not found')
         }
     }

@@ -24,9 +24,8 @@ function Register() {
     useEffect(() => {
 
         const user = array.find(token => token.resetToken == resetToken);
-
         if (user) {
-            console.log(user)
+            // console.log(user)
             setusers(user)
         }
         else {
