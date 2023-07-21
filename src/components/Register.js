@@ -6,47 +6,47 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 function Register() {
-    // const [array, setArray] = useState([]);
-    // const [users, setusers] = useState('');
-    // const [password, setpassword] = useState('');
-    // const [cpassword, setCpassword] = useState('');
-    // const [cpassworderr, setcpassworderr] = useState('');
+    const [array, setArray] = useState([]);
+    const [users, setusers] = useState('');
+    const [password, setpassword] = useState('');
+    const [cpassword, setCpassword] = useState('');
+    const [cpassworderr, setcpassworderr] = useState('');
 
-    // const resetToken = useParams().resetToken;
-    // useEffect(() => {
-    //     axios
-    //         .get(`${base_url}/api/users`)
-    //         .then(response => setArray(response.data))
+    const resetToken = useParams().resetToken;
+    useEffect(() => {
+        axios
+            .get(`https://forgot-password-s8z0.onrender.com/api/users`)
+            .then(response => setArray(response.data))
 
-    // }, [])
+    }, [])
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     const user = array.find(token => token.resetToken == resetToken);
+        const user = array.find(token => token.resetToken == resetToken);
 
-    //     if (user) {
-    //         console.log(user)
-    //         setusers(user)
-    //     }
-    //     else {
-    //         console.log('not found')
-    //     }
-    // })
+        if (user) {
+            console.log(user)
+            setusers(user)
+        }
+        else {
+            console.log('not found')
+        }
+    })
 
     const navigator = useNavigate();
     const handleregister = async (event) => {
         event.preventDefault();
         console.log('btn clicked');
-        // if (password != cpassword) {
-        //     return setcpassworderr('password does not match');
-        // } else {
-        //     try {
-        //         const response = await axios.post(`${base_url}/api/reset`, { resetToken, password });
-        //         navigator('/thankyou')
-        //     } catch (error) {
-        //         console.error(error.response.data.error)
-        //     }
-        // }
+        if (password != cpassword) {
+            return setcpassworderr('password does not match');
+        } else {
+            try {
+                const response = await axios.post(`https://forgot-password-s8z0.onrender.com/api/reset`, { resetToken, password });
+                navigator('/thankyou')
+            } catch (error) {
+                console.error(error.response.data.error)
+            }
+        }
 
     }
     return (
