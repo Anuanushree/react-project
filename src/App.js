@@ -4,6 +4,7 @@ import Register from './components/Register';
 import Rpassword from './components/Rpassword';
 import './App.css'
 import Thankyou from './components/thankyou';
+import Message from './components/message'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path='/register/:resetToken' element={<Register />} />
         <Route path='/' element={<Rpassword setArray={setArray} />} />
         <Route path='/thankyou' element={<Thankyou />} />
+        <Route path='/message' element={<Message />} />
       </Routes>
 
 

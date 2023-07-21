@@ -7,43 +7,47 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 function Register() {
     const [array, setArray] = useState([]);
+    const [users, setusers] = useState('');
     const [password, setpassword] = useState('');
     const [cpassword, setCpassword] = useState('');
-    const [passworderr, setpassworderr] = useState('');
     const [cpassworderr, setcpassworderr] = useState('');
 
+    const resetToken = useParams().resetToken;
     useEffect(() => {
         axios
-            .get('http://localhost:3001/api/users')
+            .get('https://forgot-password-s8z0.onrender.com/api/users')
             .then(response => setArray(response.data))
 
     }, [])
 
-    const resetToken = useParams().resetToken
-    let user = array.find(token => token.resetToken == resetToken)
-    console.log(user)
-    if (user) {
-        console.log(user)
-    }
-    else {
-        console.log('not found')
-    }
-   
+    useEffect(() => {
+
+        const user = array.find(token => token.resetToken == resetToken);
+
+        if (user) {
+            console.log(user)
+            setusers(user)
+        }
+        else {
+            console.log('not found')
+        }
+    })
+
     const navigator = useNavigate();
     const handleregister = async (event) => {
         event.preventDefault();
         console.log('btn clicked');
         if (password != cpassword) {
             return setcpassworderr('password does not match');
-        }else{
+        } else {
             try {
-                const response = await axios.post('http://localhost:3001/api/reset', { resetToken, password });
-              navigator('/thankyou')
+                const response = await axios.post('https://forgot-password-s8z0.onrender.com/api/reset', { resetToken, password });
+                navigator('/thankyou')
             } catch (error) {
                 console.error(error.response.data.error)
             }
         }
-        
+
     }
     return (
         <>
@@ -60,7 +64,7 @@ function Register() {
                                     <div className="col-md-6 col-lg-7 d-flex align-items-center">
                                         <div className="card-body p-4 p-lg-5 text-black">
 
-                                            <form >
+                                            <form onSubmit={handleregister}>
 
                                                 <div className="d-flex align-items-center mb-3 pb-1">
                                                     <i className="fas fa-cubes fa-2x me-3" style={{ color: "#ff6219" }}></i>
@@ -70,7 +74,7 @@ function Register() {
                                                 <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}>Sign up</h5>
 
                                                 <div className="form-outline mb-4">
-                                                    <h2> welcome Back, {user.username}</h2>
+                                                    <h2> welcome Back {users.username} </h2>
 
                                                 </div>
                                                 <div className="form-outline mb-4">
@@ -91,8 +95,7 @@ function Register() {
 
                                                 <div className="pt-1 mb-4">
                                                     <button className="btn btn-dark btn-lg btn-block"
-                                                        onClick={handleregister}
-                                                        type="button">sign up</button>
+                                                        type="submit">sign up</button>
                                                 </div>
 
                                                 <a href="#!" className="small text-muted">Terms of use.</a>

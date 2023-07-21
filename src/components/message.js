@@ -2,27 +2,8 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
-function Rpassword() {
-
-    const [email, setEmail] = useState('');
-    const navigator = useNavigate();
-
-    const handlesubmit = async (event) => {
-        event.preventDefault();
-        console.log('btn clicked');
-        console.log(email)
-        try {
-            navigator('/message')
-            const response = await axios.post('https://forgot-password-s8z0.onrender.com/api/users/reset', { email });
-            
-        } catch (error) {
-            console.error(error.response.data.error);
-            window.alert('user not found')
-        }
-    }
+function Message() {
     return (
 
         <>
@@ -39,31 +20,15 @@ function Rpassword() {
                                     <div className="col-md-6 col-lg-7 d-flex align-items-center">
                                         <div className="card-body p-4 p-lg-5 text-black">
 
-                                            <form onSubmit={handlesubmit}>
+                                            <form >
 
                                                 <div className="d-flex align-items-center mb-3 pb-1">
                                                     <i className="fas fa-cubes fa-2x me-3" style={{ color: "#ff6219" }}></i>
                                                     <span className="h1 fw-bold mb-0">Logo</span>
                                                 </div>
 
-                                                <h2 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}>Forgot Password?</h2>
-                                                <h5 className="fw-normal mb-3 pb-3">You can reset your password here.</h5>
-                                                <div className="form-outline mb-4">
-
-                                                    <input type="email" id="form2Example17"
-
-                                                        value={email}
-                                                        onChange={(event) => setEmail(event.target.value)}
-                                                        className="form-control form-control-lg" />
-                                                    <label className="form-label" >Email address</label>
-                                                </div>
-
-                                                <div className="pt-1 mb-4">
-                                                    <button className="btn btn-dark btn-lg btn-block"
-
-                                                        type='submit'>Send </button>
-                                                </div>
-
+                                                <h1>please wait</h1>
+                                                <h2>reset password link send it in your email</h2>
                                                 <a className="small text-muted">Terms of use.</a>
                                                 <a className="small text-muted">Privacy policy</a>
                                             </form>
@@ -80,4 +45,4 @@ function Rpassword() {
     )
 }
 
-export default Rpassword
+export default Message;
