@@ -13,7 +13,7 @@ function App() {
     <Router>
       <Link to='/' ></Link>
       <Routes>
-        <Route path='/register/:resetToken' element={<Register/>} />
+        <Route path='/reset/:resetToken' element={<Register/>} />
         <Route path='/' element={<Rpassword />} />
         <Route path='/thankyou' element={<Thankyou />} />
         <Route path='/message' element={<Message />} />
