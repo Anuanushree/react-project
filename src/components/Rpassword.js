@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function Rpassword() {
+function Rpassword({base_url}) {
 
     const [email, setEmail] = useState('');
     const navigator = useNavigate();
@@ -15,9 +15,10 @@ function Rpassword() {
         console.log('btn clicked');
         console.log(email)
         try {
-            navigator('/message')
-            const response = await axios.post('https://forgot-password-s8z0.onrender.com/api/users/reset', { email });
-            
+            const response = await axios.post(`${base_url}/api/users/reset`, { email });
+            navigator('/register')
+           
+             
         } catch (error) {
             console.error(error.response.data.error);
             window.alert('user not found')

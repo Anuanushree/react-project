@@ -5,19 +5,22 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-function Register({base_url}) {
+function RegisterForm() {
     const [array, setArray] = useState([]);
     const [users, setusers] = useState('');
     const [password, setpassword] = useState('');
     const [cpassword, setCpassword] = useState('');
     const [cpassworderr, setcpassworderr] = useState('');
-
     const resetToken = useParams().resetToken;
-    useEffect(() => {
-        axios
-            .get(`${base_url}/api/users`)
-            .then(response => setArray(response.data))
 
+
+    useEffect(() => {
+        try {
+            const response = axios.get(`https://forgot-password-s8z0.onrender.com/api/users`)
+            setArray(response.data);
+        } catch (error) {
+            console.log(error)
+        }
     }, [])
 
     useEffect(() => {
@@ -41,7 +44,7 @@ function Register({base_url}) {
             return setcpassworderr('password does not match');
         } else {
             try {
-                const response = await axios.post(`${base_url}/api/reset`, { resetToken, password });
+                const response = await axios.post(`https://forgot-password-s8z0.onrender.com/api/reset`, { resetToken, password });
                 navigator('/thankyou')
             } catch (error) {
                 console.error(error.response.data.error)
@@ -114,4 +117,4 @@ function Register({base_url}) {
     )
 }
 
-export default Register;
+export default RegisterForm;
