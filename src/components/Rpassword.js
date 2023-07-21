@@ -17,6 +17,7 @@ function Rpassword() {
         console.log(email)
         try {
             const response = await axios.post(`https://forgot-password-s8z0.onrender.com/api/users/reset`, { email });
+            console.log(response.data)
             navigator('/register')
 
 
@@ -66,8 +67,8 @@ function Rpassword() {
                                                         type='submit'>Send </button>
                                                 </div>
 
-                                                <a className="small text-muted">Terms of use.</a>
-                                                <a className="small text-muted">Privacy policy</a>
+                                                <p className="small text-muted">Terms of use.</p>
+                                                <p className="small text-muted">Privacy policy</p>
                                             </form>
 
                                         </div>

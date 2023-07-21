@@ -31,7 +31,7 @@ function Register() {
         else {
             console.log('not found')
         }
-    })
+    }, [array])
 
     const navigator = useNavigate();
     const handleregister = async (event) => {

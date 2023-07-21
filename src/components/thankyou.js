@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -29,8 +29,8 @@ function Thankyou() {
 
                                                 <h1>THANK YOU</h1>
                                                 <h2>your password updated successfully</h2>
-                                                <a className="small text-muted">Terms of use.</a>
-                                                <a className="small text-muted">Privacy policy</a>
+                                                <p className="small text-muted">Terms of use.</p>
+                                                <p className="small text-muted">Privacy policy</p>
                                             </form>
 
                                         </div>
